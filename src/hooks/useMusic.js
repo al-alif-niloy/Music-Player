@@ -61,14 +61,13 @@ const songs = [
   },
 ];
 export const useMusic = () => {
-    const [AllSongs, SetAllSongs] = useState(songs);
-        const [currentTrack, setCurrentTrack] = useState(null);
+const [allSongs, setAllSongs] = useState(songs);
+const [currentTrack, setCurrentTrack] = useState(songs);
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-
 
     const handlePlaySong = (song, index) => {
         setCurrentTrack(song);
         setCurrentTrackIndex(index);
     };
-    return {AllSongs, handlePlaySong, currentTrack, currentTrackIndex};
+return { allSongs, handlePlaySong, currentTrack, currentTrackIndex };
 };
