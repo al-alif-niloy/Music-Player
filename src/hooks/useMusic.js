@@ -67,12 +67,15 @@ const [currentTrack, setCurrentTrack] = useState(songs[0]);
         const [currentTime, setCurrentTime] = useState(0);
      const [duration, setDuration] = useState(0);
           const [isPlaying, setIsPlaying] = useState(false);
+               const [volume, setVolume] = useState(1);
+
 
 
 
     const handlePlaySong = (song, index) => {
         setCurrentTrack(song);
         setCurrentTrackIndex(index);
+        setIsPlaying(false);
     };
 
     const nextTrack = () => {
@@ -81,6 +84,7 @@ const [currentTrack, setCurrentTrack] = useState(songs[0]);
         setCurrentTrack(allSongs[nextIndex]);
         return nextIndex;
       });
+      setIsPlaying(false);
     };
 
     const prevTrack = () => {
@@ -89,9 +93,11 @@ const [currentTrack, setCurrentTrack] = useState(songs[0]);
         setCurrentTrack(allSongs[nextIndex]);
         return nextIndex;
       });
+            setIsPlaying(false);
+
     };
 
-    const formateTime = (time) => {
+    const formatTime = (time) => {
       if (isNaN(time) || time === undefined) return "0:00";
 
       const minutes = Math.floor(time / 60);
@@ -109,13 +115,15 @@ return { allSongs,
     currentTrackIndex, 
     setCurrentTime, 
     currentTime, 
-    formateTime, 
+    formatTime, 
     duration, 
     setDuration,
     nextTrack, 
     prevTrack,
     play, 
-    pause
+    pause,
+    volume,
+    setVolume
   
   };
 };
