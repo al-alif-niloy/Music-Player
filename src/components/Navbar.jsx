@@ -1,21 +1,31 @@
-import {Link} from "react-router";
+import { Link, useLocation } from "react-router";
 
 export const Navbar = () => {
-    return (
-        <nav className="navbar">
-            <div className="navbar-brand">
-                <Link className="brand-link" to="/">
-                Music Player
-                </Link>
-            </div>
+  const location = useLocation();
+  return (
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <Link className="brand-link" to="/">
+          🎵 Music Player
+        </Link>
+      </div>
 
-            <div className="navbar-links">
-                <Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>All Songs</Link>
-                 <Link to="/playLists"className={`nav-link ${location.pathname === "/playLists" ? "active" : ""}`}>
-                 PlayLists
-                 </Link>
-
-            </div>
-        </nav>
-    );
+      <div className="navbar-links">
+        <Link
+          to="/"
+          className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
+        >
+          All Songs
+        </Link>
+        <Link
+          to="/playlists"
+          className={`nav-link ${
+            location.pathname === "/playlists" ? "active" : ""
+          }`}
+        >
+          Playlists
+        </Link>
+      </div>
+    </nav>
+  );
 };
